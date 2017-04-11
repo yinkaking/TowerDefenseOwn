@@ -32,7 +32,8 @@ namespace TowerDefense
             screen = new Point(1024, 683);
             this.IsMouseVisible = true;
             SetFullScreen(false);
-
+            GameStateManager.AddGameState("playingState", new PlayingState());
+            GameStateManager.SwitchTo("playingState");
             // TODO: use this.Content to load your game content here
         }
     }
