@@ -29,6 +29,14 @@ namespace TowerDefense
             this.Position = position;
         }
 
-        
+        public override void Update(GameTime gameTime)
+        {
+            base.Update(gameTime);
+            PlayingState gameState = (TowerDefense.GameStateManager.GetGameState("playingState") as PlayingState);
+            GameObject lookatObject = gameState.ufos.Objects.Find(c => (c.Visible));
+            LookAt(lookatObject);
+        }
+
+
     }
 }

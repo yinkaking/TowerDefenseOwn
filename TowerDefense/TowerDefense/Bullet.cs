@@ -11,6 +11,8 @@ namespace TowerDefense
         public Bullet(String assetName, Vector2 position, Vector2 velocity) : base(assetName)
         {
             this.Origin = this.Sprite.Center;
+            this.Velocity = velocity;
+            this.Position = position;
         }
     }
 }

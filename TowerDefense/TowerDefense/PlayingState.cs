@@ -9,8 +9,8 @@ namespace TowerDefense
     class PlayingState : GameObjectList
     {
         SpriteGameObject background;
-        SpriteGameObject homeBase;
-        GameObjectList ufos = new GameObjectList();
+        public SpriteGameObject homeBase;
+        public GameObjectList ufos = new GameObjectList();
         List<Vector2> ufoPositions = new List<Vector2>();
         GameObjectList cannons = new GameObjectList();
         GameObjectList bullets = new GameObjectList();
@@ -54,7 +54,6 @@ namespace TowerDefense
             base.Update(gameTime);
             for(int i = 0; i < cannons.Objects.Count; i++)
             {
-                
                 if ((cannons.Objects.ElementAt(i) as AutoFireCannon).hasFired)
                 {
                     bullets.Add(new Bullet(
@@ -63,6 +62,20 @@ namespace TowerDefense
                         (cannons.Objects.ElementAt(i) as AutoFireCannon).AngularDirection * 120)
                     );
                 }
+            }
+
+            for(int i = 0; i < bullets.Objects.Count; i++)
+            {
+                for(int j = 0; j < ufos.Objects.Count; j++)
+                {
+                    if ((bullets.Objects.ElementAt(i) as Bullet).
+                        CollidesWith((ufos.Objects.ElementAt(j) as Ufo)))
+                    {
+                        bullets.Objects.ElementAt(i).Visible = false;
+                        ufos.Objects.ElementAt(j).Visible = false;
+                    }
+                }
+                
             }
         }
     }

@@ -12,6 +12,7 @@ namespace TowerDefense
         public Ufo(String assetName, Vector2 startPosition, GameObject targetObject): base(assetName)
         {
             this.Origin = this.Sprite.Center;
+            this.Position = startPosition;
             this.LookAt(targetObject);
             this.targetObject = targetObject;
         }
