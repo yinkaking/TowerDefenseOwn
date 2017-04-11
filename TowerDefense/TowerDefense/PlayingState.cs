@@ -75,8 +75,17 @@ namespace TowerDefense
                         ufos.Objects.ElementAt(j).Visible = false;
                     }
                 }
-                
             }
+
+            if(ufos.Objects.All(c => (c.Visible == false)))
+            {
+                TowerDefense.GameStateManager.SwitchTo("winState");
+            }
+            if(ufos.Objects.Any(c => (c.Visible) && ((c as Ufo).CollidesWith(homeBase))))
+            {
+                TowerDefense.GameStateManager.SwitchTo("gameOverState");
+            }
+
         }
     }
 }
