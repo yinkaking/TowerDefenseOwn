@@ -62,6 +62,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="RotatingSpriteGameObject.cs" />
     <Compile Include="TowerDefense.cs" />
+    <Compile Include="Ufo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Game.ico" />
