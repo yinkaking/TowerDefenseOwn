@@ -13,6 +13,7 @@ namespace TowerDefense
         GameObjectList ufos = new GameObjectList();
         List<Vector2> ufoPositions = new List<Vector2>();
         GameObjectList cannons = new GameObjectList();
+        GameObjectList bullets = new GameObjectList();
 
         public PlayingState()
         {
@@ -36,6 +37,7 @@ namespace TowerDefense
             }
             this.Add(ufos);
             this.Add(cannons);
+            this.Add(bullets);
         }
 
         public override void HandleInput(InputHelper inputHelper)
@@ -44,6 +46,23 @@ namespace TowerDefense
             if (inputHelper.MouseLeftButtonPressed())
             {
                 cannons.Add(new AutoFireCannon("spr_cannon", inputHelper.MousePosition));
+            }
+        }
+
+        public override void Update(GameTime gameTime)
+        {
+            base.Update(gameTime);
+            for(int i = 0; i < cannons.Objects.Count; i++)
+            {
+                
+                if ((cannons.Objects.ElementAt(i) as AutoFireCannon).hasFired)
+                {
+                    bullets.Add(new Bullet(
+                        "spr_bullet",
+                        (cannons.Objects.ElementAt(i) as AutoFireCannon).Position,
+                        (cannons.Objects.ElementAt(i) as AutoFireCannon).AngularDirection * 120)
+                    );
+                }
             }
         }
     }

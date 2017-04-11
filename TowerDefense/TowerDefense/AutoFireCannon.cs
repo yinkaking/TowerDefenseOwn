@@ -9,7 +9,7 @@ namespace TowerDefense
     class AutoFireCannon : RotatingSpriteGameObject
     {
         int cooldownTimer;
-        bool hasFired
+        public bool hasFired
         {
             get
             {
@@ -27,7 +27,6 @@ namespace TowerDefense
         {
             this.Origin = new Vector2(16, 16);
             this.Position = position;
-
         }
 
         
