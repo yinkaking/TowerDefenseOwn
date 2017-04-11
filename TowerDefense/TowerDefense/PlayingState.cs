@@ -33,7 +33,7 @@ namespace TowerDefense
 
             for(int i = 0; i < 5; i++)
             {
-                ufos.Add(new Ufo("spr_ufo", ufoPositions.ElementAt(i), homeBase));
+                ufos.Add(new Ufo(ufoPositions.ElementAt(i), homeBase));
             }
             this.Add(ufos);
             this.Add(cannons);
@@ -45,7 +45,7 @@ namespace TowerDefense
             base.HandleInput(inputHelper);
             if (inputHelper.MouseLeftButtonPressed())
             {
-                cannons.Add(new AutoFireCannon("spr_cannon", inputHelper.MousePosition));
+                cannons.Add(new AutoFireCannon(inputHelper.MousePosition));
             }
         }
 
@@ -57,7 +57,6 @@ namespace TowerDefense
                 if ((cannons.Objects.ElementAt(i) as AutoFireCannon).hasFired)
                 {
                     bullets.Add(new Bullet(
-                        "spr_bullet",
                         (cannons.Objects.ElementAt(i) as AutoFireCannon).Position,
                         (cannons.Objects.ElementAt(i) as AutoFireCannon).AngularDirection * 120)
                     );

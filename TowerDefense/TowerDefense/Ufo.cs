@@ -9,7 +9,7 @@ namespace TowerDefense
     class Ufo : RotatingSpriteGameObject
     {
 
-        public Ufo(String assetName, Vector2 startPosition, GameObject targetObject): base(assetName)
+        public Ufo(Vector2 startPosition, GameObject targetObject): base("spr_ufo")
         {
             this.Origin = this.Sprite.Center;
             this.Position = startPosition;

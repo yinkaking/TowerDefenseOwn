@@ -8,7 +8,7 @@ namespace TowerDefense
 {
     class Bullet: SpriteGameObject
     {
-        public Bullet(String assetName, Vector2 position, Vector2 velocity) : base(assetName)
+        public Bullet(Vector2 position, Vector2 velocity) : base("spr_bullet")
         {
             this.Origin = this.Sprite.Center;
             this.Velocity = velocity;

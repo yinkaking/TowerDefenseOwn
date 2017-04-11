@@ -23,7 +23,7 @@ namespace TowerDefense
             }
 
         }
-        public AutoFireCannon(String assetName, Vector2 position) : base(assetName)
+        public AutoFireCannon(Vector2 position) : base("spr_cannon")
         {
             this.Origin = new Vector2(16, 16);
             this.Position = position;
